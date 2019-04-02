@@ -1,0 +1,75 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+}
+
+body {
+  background-image: linear-gradient(-60deg, #16a085 0%, #f4d03f 100%);
+}
+
+span {
+  margin: 10px;
+  color: #444;
+  font-size: 12px;
+}
+
+body {
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+form {
+  position: relative;
+  display: block;
+  width: 300px;
+  height: 50px;  
+  box-shadow: 0 20px 30px -20px #000;
+
+}
+
+input {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  font-size: 16px;
+  outline: 0;
+  border: none;
+  border-radius: 10px;
+  background: #444;
+}
+
+button {
+  position: absolute;
+  height: 100%; width: 50px;
+  top: 0; right: 0;
+  background: #222;
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  outline: 0;
+  border: none;
+  border-radius: 0 10px 10px 0;
+}
+
+button::before,
+button::after {
+  content:'';
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  margin: auto;
+}
+
+input[type='password'] + button::before {
+  width: 15px;
+  height: 15px;
+  border-top: 3px solid #444;
+  border-right: 3px solid #444;
+  transform: translate(-3px) rotate(45deg);
+}
