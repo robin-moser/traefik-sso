@@ -2,7 +2,7 @@
 
 class Secret {
 
-    protected static $file = '../secret';
+    protected static $file = '/tmp/sso_secret';
 
     public static function get() {
 

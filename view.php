@@ -18,7 +18,7 @@
   </head>
   <body>
 
-    <form action="https://<?= $_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'] ?>" method="post">
+    <form action="https://<?= $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'] ?>" method="post">
       <input id="container" type="password" autofocus name="password" placeholder="Password">
       <button type="submit"></button>
     </form>

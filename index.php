@@ -59,7 +59,6 @@ if ( $forwardhost != $aliasdomain ) {
 }
 
 if ( $service && validatejwt($globalcookie) ) {
-  var_dump($_GET['service']);
   http_response_code(302);
   header("Location: https://". $service . $delim . getjwt() . $delim);
 }
