@@ -1,0 +1,35 @@
+---
+version: '3.4'
+
+# Stack Compose File für Docker Swarm Setup
+# 
+# Env-Variablen:
+# WEB_ALIAS_DOMAIN:   Hostname der Authinstanz
+# PASSWORD_HASH:      Passwort zum Einloggen, mit bcrypt gehasht
+
+services:
+  webserver:
+    image: webdevops/php-nginx:7.2
+    restart: always
+    environment:
+      WEB_ALIAS_DOMAIN: ${WEB_ALIAS_DOMAIN}
+      PASSWORD: ${PASSWORD_HASH}
+    deploy:
+      labels:
+        - 'traefik.port=80'
+        - 'traefik.frontend.redirect.entryPoint=https'
+        - 'traefik.docker.network=Traefik_traefik-net'
+        - 'traefik.frontend.rule=Host:${WEB_ALIAS_DOMAIN}'
+    networks:
+      - Traefik_traefik-net
+    volumes:
+      - /swarm/volumes/sso:/app
+    logging:
+      options:
+        max-size: '100m'
+        max-file: '5'
+      driver: json-file
+
+networks:
+  Traefik_traefik-net:
+    external: true
