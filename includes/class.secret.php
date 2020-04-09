@@ -17,7 +17,7 @@ class Secret {
         return substr(self::get(), 0, $c);
 
     }
-    
+
     public static function change() {
 
         $secret = md5(microtime().rand());

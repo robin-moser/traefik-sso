@@ -7,6 +7,7 @@ html, body {
 }
 
 body {
+  height: 100%;
   background-image: linear-gradient(-60deg, #16a085 0%, #f4d03f 100%);
 }
 
@@ -28,45 +29,63 @@ form {
   position: relative;
   display: block;
   width: 300px;
-  height: 50px;  
-  box-shadow: 0 20px 30px -20px #000;
 
 }
 
-input {
+input, button {
   width: 100%;
-  height: 100%;
+  height: 50px;
   padding: 10px;
   font-size: 16px;
   outline: 0;
   border: none;
   border-radius: 10px;
   background: #444;
+  color: #999;
+  box-shadow: 0 20px 30px -20px #000;
 }
 
-button {
+input.userpass {
+  text-align: center;
+}
+
+input.userpass#user {
+  border-radius: 10px 10px 0 0;
+  border-bottom: 1px solid #555;
+}
+
+input.userpass#password {
+  border-radius: 0;
+  border-radius: 0 0 10px 10px;
+  margin-bottom: 10px;
+}
+
+button.userpass {
+  background: #222;
+  cursor: pointer;
+}
+
+button.singlepass {
   position: absolute;
-  height: 100%; width: 50px;
+  width: 50px;
   top: 0; right: 0;
   background: #222;
   cursor: pointer;
-  border: 0;
   padding: 0;
   margin: 0;
-  outline: 0;
-  border: none;
   border-radius: 0 10px 10px 0;
+  box-shadow: none;
 }
 
-button::before,
-button::after {
+button.singlepass::before,
+button.singlepass::after {
   content:'';
   position: absolute;
   top: 0; left: 0; bottom: 0; right: 0;
   margin: auto;
 }
 
-input[type='password'] + button::before {
+input.singlepass[type='password'] + button.singlepass::before {
   width: 15px;
   height: 15px;
   border-top: 3px solid #444;

@@ -10,13 +10,12 @@ function generate() {
     return a;
   }
   
-  var newColor1 = populate('#');
-  var newColor2 = populate('#');
-  var angle = Math.round( Math.random() * 360 );
-  var gradient = "linear-gradient(" + angle + "deg, " + newColor1 + ", " + newColor2 + ")";
+  // var newColor1 = populate('#');
+  // var newColor2 = populate('#');
+  // var angle = Math.round( Math.random() * 360 );
+  // var gradient = "linear-gradient(" + angle + "deg, " + newColor1 + ", " + newColor2 + ")";
   
-  // console.log(document);
-  document.body.style.background = gradient;  
+  // document.body.style.background = gradient;
 }
 
 window.onload = generate();
