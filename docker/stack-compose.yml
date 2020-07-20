@@ -1,19 +1,18 @@
 ---
-version: '3.4'
+version: '3.7'
 
-# Stack Compose File für Docker Swarm Setup
+# example stack-compose file for a docker swarm setup
 # 
-# Env-Variablen:
-# WEB_ALIAS_DOMAIN:   Hostname der Authinstanz
-# PASSWORD_HASH:      Passwort zum Einloggen, mit bcrypt gehasht
+# environemnt variables:
+#
+# WEB_ALIAS_DOMAIN:   domain of the sso service
+# WEB_TITLE:          page title of the password mask
 
 services:
   webserver:
-    image: webdevops/php-nginx:7.2
-    restart: always
+    image: webdevops/php-nginx:7.4
     environment:
       WEB_ALIAS_DOMAIN: ${WEB_ALIAS_DOMAIN}
-      PASSWORD: ${PASSWORD_HASH}
     deploy:
       labels:
         - 'traefik.port=80'
@@ -23,7 +22,7 @@ services:
     networks:
       - Traefik_traefik-net
     volumes:
-      - /swarm/volumes/sso:/app
+      - /yourprojectpath/sso/credentials.yml:/app/credentials.yml
     logging:
       options:
         max-size: '100m'

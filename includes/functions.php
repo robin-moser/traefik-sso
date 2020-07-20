@@ -1,5 +1,13 @@
 <?php
 
+/**
+ * generates a jwt (token) with given parameters
+ * and encodes it with the current secret
+ *
+ * @param string $username  the name of the requesting user
+ * @param int $exp  the absolute unix timestamp, when the token expires
+ * @return JWT
+ */
 function getjwt( $username = null, $exp = null ) {
 
   $jwtdata = [
@@ -13,6 +21,13 @@ function getjwt( $username = null, $exp = null ) {
 
 }
 
+/**
+ * validates a given jwt (token) against an accesslist
+ *
+ * @param string $jwttoken  the jwt to be checked
+ * @param string accesslist  the name of the accesslist to validate against
+ * @return bool
+ */
 function validatejwt($jwttoken, $accesslist) {
 
   try {
@@ -31,6 +46,13 @@ function validatejwt($jwttoken, $accesslist) {
   }
 }
 
+/**
+ * checks, if a user is member of a given list
+ *
+ * @param string $user  the user to check
+ * @param string $list  the list to be checked against
+ * @return bool
+ */
 function userinlist($user, $list) {
   global $credentials;
 

@@ -2,7 +2,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <title>Robin Moser - SSO</title>
+    <title><?= ( strlen(getenv('WEB_TITLE')) ) ? getenv('WEB_TITLE') : "SSO" ?></title>
     <style>
 <?php include("assets/style.css"); ?>
 <?php if ($logout) { ?>
@@ -34,11 +34,10 @@
 
   <?php } ?>
 
-<?php /*
   <script>
     <?php include("includes/script.js"); ?> 
   </script>
- */ ?>
+
   </body>
 </html>
 
