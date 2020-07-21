@@ -10,7 +10,7 @@ version: '3.7'
 
 services:
   webserver:
-    image: webdevops/php-nginx:7.4
+    image: robinmoser/sso:latest
     environment:
       WEB_ALIAS_DOMAIN: ${WEB_ALIAS_DOMAIN}
     deploy:
