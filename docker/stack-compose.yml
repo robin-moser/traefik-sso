@@ -22,7 +22,7 @@ services:
     networks:
       - Traefik_traefik-net
     volumes:
-      - /yourprojectpath/sso/credentials.yml:/app/credentials.yml
+      - /yourprojectpath/sso/credentials.php:/app/credentials.php
     logging:
       options:
         max-size: '100m'

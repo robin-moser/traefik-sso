@@ -16,7 +16,7 @@ require_once('includes/functions.php');
 
 http_response_code(401);
 
-$credentials  = yaml_parse(file_get_contents('credentials.yml'));
+require_once( 'credentials.php' );
 $requireuser  = ( isset($_GET['list']) ) ? true : false;
 
 # the service requires a domain, where it can redirect to, if needed

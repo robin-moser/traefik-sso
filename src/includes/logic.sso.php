@@ -24,7 +24,7 @@ if ( $service && validatejwt($globalcookie, $accesslist ) ) {
 
 # the user is not authentificated, so check, if a password was posted
 if ( array_key_exists($accesslist, $credentials['lists'])
-     && in_array($username, $credentials['lists'][$accesslist]['users'])
+     && in_array($username, $credentials['lists'][$accesslist])
      && password_verify($password, $credentials['users'][$username]) ) {
 
   # the user posted a valid password, so we can set the global sso cookie for this user

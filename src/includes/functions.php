@@ -57,7 +57,7 @@ function userinlist($user, $list) {
   global $credentials;
 
   $arrlist = $credentials['lists'];
-  if (array_key_exists($list, $arrlist) && in_array($user, $arrlist[$list]['users'])) {
+  if (array_key_exists($list, $arrlist) && in_array($user, $arrlist[$list])) {
     return true;
   } else {
     return false;
