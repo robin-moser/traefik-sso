@@ -2,7 +2,7 @@
 version: '3.7'
 
 # example stack-compose file for a docker swarm setup
-# 
+#
 # environemnt variables:
 #
 # WEB_ALIAS_DOMAIN:   domain of the sso service
@@ -22,7 +22,7 @@ services:
     networks:
       - Traefik_traefik-net
     volumes:
-      - /yourprojectpath/sso/credentials.php:/app/credentials.php
+      - /yourprojectpath/sso/config:/app/config:ro
     logging:
       options:
         max-size: '100m'

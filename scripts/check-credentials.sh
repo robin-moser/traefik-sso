@@ -1,9 +1,9 @@
 #!/bin/sh
 
-if [ ! -f "$WEB_DOCUMENT_ROOT"/credentials.php ]; then
+if [ ! -f "$WEB_DOCUMENT_ROOT"/config/credentials.php ]; then
 
     echo "FATAL: Credentials File 'credentials.php' not found!"
-    echo "Please create a credentials File and mount it into $WEB_DOCUMENT_ROOT for the application to work."
+    echo "Please create a credentials file inside the config directory and mount the directory into $WEB_DOCUMENT_ROOT/config for the application to work."
     echo "Exiting..."
 
     exit 1
