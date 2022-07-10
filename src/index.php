@@ -10,9 +10,15 @@
 # include required classes
 require_once('includes/class.jwt.php');
 require_once('includes/class.secret.php');
+require_once('includes/class.events.php');
 
 # include custom functions
 require_once('includes/functions.php');
+
+# include event binders
+foreach (glob("includes/events/*.php") as $filename) {
+    include $filename;
+}
 
 http_response_code(401);
 

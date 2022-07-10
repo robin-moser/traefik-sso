@@ -29,6 +29,7 @@ if ( array_key_exists($accesslist, $credentials['lists'])
 
   # the user posted a valid password, so we can set the global sso cookie for this user
   setcookie('globalauth', getjwt($username,$globalexp), $globalexp);
+  Event::trigger('user.login.success', array($username, $accesslist, $_GET['service']));
 
   # if the user was redirected to the sso service and a service url was given as a parameter,
   # redirect back to the first requested service
@@ -40,7 +41,7 @@ if ( array_key_exists($accesslist, $credentials['lists'])
 
   } else {
 
-    http_response_code(200);
+      http_response_code(200);
 
   }
 
@@ -50,8 +51,14 @@ if ( array_key_exists($accesslist, $credentials['lists'])
 
   Secret::change();
   $logout = true;
+  Event::trigger('user.logout', null);
+
+} elseif ( isset($_POST['password']) ) {
+
+  Event::trigger('user.login.failure', array($username, $accesslist, $_GET['service']));
 
 }
+
 
 # no valid authentification and no (or invalid) password given,
 # so display the login view

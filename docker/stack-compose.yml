@@ -23,6 +23,7 @@ services:
       - Traefik_traefik-net
     volumes:
       - /yourprojectpath/sso/config:/app/config:ro
+      - /yourprojectpath/sso/events:/app/includes/events:ro
     logging:
       options:
         max-size: '100m'
