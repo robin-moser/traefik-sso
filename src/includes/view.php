@@ -35,7 +35,7 @@
   <?php } ?>
 
   <script>
-    <?php include("includes/script.js"); ?> 
+    <?php /* include("assets/script.js"); */ ?>
   </script>
 
   </body>
