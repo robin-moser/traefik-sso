@@ -1,6 +1,7 @@
-#!/bin/sh
+#!/command/with-contenv sh
 
-if [ ! -f "$WEB_DOCUMENT_ROOT"/config/credentials.php ]; then
+if [ ! -f "$NGINX_WEB_ROOT"/config/credentials.php ]; then
+
 
     echo "FATAL: Credentials File 'credentials.php' not found!"
     echo "Please create a credentials file inside the config directory and mount the directory into $WEB_DOCUMENT_ROOT/config for the application to work."

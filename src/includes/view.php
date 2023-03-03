@@ -5,7 +5,7 @@
     <title><?= ( strlen(getenv('WEB_TITLE')) ) ? getenv('WEB_TITLE') : "SSO" ?></title>
     <style>
 <?php include("assets/style.css"); ?>
-<?php if ($logout) { ?>
+<?php if (isset($logout) && $logout) { ?>
   input.singlepass[type='password'] + button.singlepass::before {
     width: 20px;
     height: 10px;

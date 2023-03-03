@@ -27,7 +27,7 @@ $requireuser  = ( isset($_GET['list']) ) ? true : false;
 
 # the service requires a domain, where it can redirect to, if needed
 # the domain gets set with the environment variable WEB_ALIAS_DOMAIN
-$aliasdomain  = getenv('WEB_ALIAS_DOMAIN') ? getenv('WEB_ALIAS_DOMAIN') : die('No SSO Domain configured');
+$aliasdomain  = getenv('NGINX_DOMAIN') ? getenv('NGINX_DOMAIN') : die('No SSO Domain configured');
 
 $forwardhost  = ( isset($_SERVER['HTTP_X_FORWARDED_HOST']) ) ? $_SERVER['HTTP_X_FORWARDED_HOST'] : false;
 $forwarduri   = ( isset($_SERVER['HTTP_X_FORWARDED_URI']) ) ? $_SERVER['HTTP_X_FORWARDED_URI'] : false;
